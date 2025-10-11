@@ -5,31 +5,34 @@ using Sirenix.OdinInspector;
 
 public class SpinWheel : MonoBehaviour
 {
-    [Header("Wheel Settings")] public Transform wheelTransform; // ui_wheel_root
-    public int slotCount = 8; // slot sayısı
-    public float spinDuration = 3f; // dönüş süresi
-    public int spinRounds = 3; // kaç tur atacak (ekstra tam tur)
-    public AnimationCurve spinCurve; // easing (örnek: EaseOut)
+    [Header("Wheel Settings")] public Transform wheelTransform;
+    public int slotCount = 8;
+    public float spinDuration = 3f; 
+    public int spinRounds = 3; 
+    public AnimationCurve spinCurve; 
 
-    [Header("Events")] public Action<int> OnSlotSelected; // sonucu dışarı bildirir
+    [Header("Events")] private readonly Action<int> _onSlotSelected;
 
-    bool spinning = false;
+    private bool _spinning;
+
+    public SpinWheel(Action<int> onSlotSelected)
+    {
+        _onSlotSelected = onSlotSelected;
+    }
 
     [Button]
     public void Spin()
     {
-        if (spinning || wheelTransform == null) return;
+        if (_spinning || wheelTransform == null) return;
         StartCoroutine(SpinRoutine());
     }
 
     IEnumerator SpinRoutine()
     {
-        spinning = true;
+        _spinning = true;
 
-        // rastgele hedef slot seç
         int selectedIndex = UnityEngine.Random.Range(0, slotCount);
 
-        // her slotun açısı
         float anglePerSlot = 360f / slotCount;
         float targetAngle = (selectedIndex * anglePerSlot) + (spinRounds * 360f);
 
@@ -39,20 +42,19 @@ public class SpinWheel : MonoBehaviour
         while (elapsed < spinDuration)
         {
             elapsed += Time.deltaTime;
-            float t = spinCurve != null ? spinCurve.Evaluate(elapsed / spinDuration) : (elapsed / spinDuration);
-            float currentAngle = Mathf.Lerp(startAngle, -targetAngle, t); // - çünkü UI ters döner
+            float t = spinCurve?.Evaluate(elapsed / spinDuration) ?? (elapsed / spinDuration);
+            float currentAngle = Mathf.Lerp(startAngle, -targetAngle, t); 
             wheelTransform.localEulerAngles = new Vector3(0, 0, currentAngle);
             yield return null;
         }
 
-        // tam hizala
+      
         float finalAngle = -selectedIndex * anglePerSlot;
         wheelTransform.localEulerAngles = new Vector3(0, 0, finalAngle);
 
-        spinning = false;
-
-        // seçilen slotu bildir
-        OnSlotSelected?.Invoke(selectedIndex);
+        _spinning = false;
+        
+        _onSlotSelected?.Invoke(selectedIndex);
         Debug.Log($"🎯 Selected Slot: {selectedIndex}");
     }
 }
