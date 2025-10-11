@@ -361,8 +361,9 @@
 "Assets/Scripts/RadialLayoutGroup.cs"
 "Assets/Scripts/RewardDefinitionSo.cs"
 "Assets/Scripts/SafeAreaFitter.cs"
+"Assets/Scripts/SpinController.cs"
 "Assets/Scripts/SpinManager.cs"
-"Assets/Scripts/SpinWheel.cs"
+"Assets/Scripts/SpinWheelAnimator.cs"
 "Assets/Scripts/WheelTypeSO.cs"
 -langversion:9.0
 /deterministic

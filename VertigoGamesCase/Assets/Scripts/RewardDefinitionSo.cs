@@ -15,4 +15,14 @@ public class RewardDefinitionSo : ScriptableObject
 
     [Header("Miktar Varsayılanı")] [Min(0)]
     public int baseAmount = 1;
+
+    public int GetRandomAmount()
+    {
+        return Random.Range(1, baseAmount);
+    }
+
+    public bool IsBomb()
+    {
+        return type == RewardType.Bomb;
+    }
 }
