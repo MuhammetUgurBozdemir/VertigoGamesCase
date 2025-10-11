@@ -118,6 +118,7 @@
 -define:ODIN_INSPECTOR_3
 -define:ODIN_INSPECTOR_3_1
 -define:ODIN_INSPECTOR_EDITOR_ONLY
+-define:DOTWEEN
 -define:PACKAGE_PHYSICS
 -define:PACKAGE_PHYSICS2D
 -define:PACKAGE_TILEMAP
@@ -341,6 +342,8 @@
 -r:"/Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll"
 -r:"/Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll"
 -r:"/Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"Assets/Plugins/Demigiant/DOTween/DOTween.dll"
+-r:"Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll"
 -r:"Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll"
 -r:"Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll"
 -r:"Assets/Sirenix/Assemblies/Sirenix.Reflection.Editor.dll"

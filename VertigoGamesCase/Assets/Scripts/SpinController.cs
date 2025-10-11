@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,8 @@ public class SpinController : MonoBehaviour
     // public RewardsPanelView rewardsPanel;      
 
     SpinManager manager;
+    
+    [SerializeField] List<SliceView> sliceViews;
 
     void Awake()
     {
@@ -27,6 +30,11 @@ public class SpinController : MonoBehaviour
         
         manager.OnSlotSelected += idx => Debug.Log("Slot: " + idx);
         manager.OnRewardResolved += slice => { /* popup/FX vs. */ };
+
+        for (int i = 0; i < sliceViews.Count; i++)
+        {
+            sliceViews[i].Init(config.rewardDefinitions[i]);
+        }
     }
 
     void OnDestroy()

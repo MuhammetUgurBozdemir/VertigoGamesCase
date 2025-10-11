@@ -9,18 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 0e4b7c158afa74ed6bba6340f1670a02, type: 3}
   m_Name: GoldWheel
   m_EditorClassIdentifier: Assembly-CSharp::WheelTypeSo
   wheelType: 2
   bgSprite: {fileID: 21300000, guid: fa88746f3469340599c1a471de80e05c, type: 3}
   pointerSprite: {fileID: 21300000, guid: fadf227e0f4234a9589d33cbbfcfdad2, type: 3}
   rewardDefinitions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
