@@ -114,6 +114,10 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:ODIN_INSPECTOR
+-define:ODIN_INSPECTOR_3
+-define:ODIN_INSPECTOR_3_1
+-define:ODIN_INSPECTOR_EDITOR_ONLY
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"/Applications/Unity/Hub/Editor/2021.3.45f2/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll"
@@ -322,6 +326,13 @@
 -r:"/Applications/Unity/Hub/Editor/2021.3.45f2/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll"
 -r:"/Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/PackageCache/com.unity.testtools.codecoverage@1.2.6/lib/ReportGenerator/ReportGeneratorMerged.dll"
 -r:"/Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.Reflection.Editor.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.Serialization.Config.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.Serialization.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.Utilities.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll"
 -r:"Library/Bee/artifacts/1300b0aEDbg.dag/Unity.2D.Sprite.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aEDbg.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aEDbg.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
@@ -348,6 +359,8 @@
 -r:"Library/Bee/artifacts/1300b0aEDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/RadialLayoutGroup.cs"
 "Assets/Scripts/SafeAreaFitter.cs"
+"Assets/Scripts/SpinManager.cs"
+"Assets/Scripts/SpinWheel.cs"
 -langversion:9.0
 /deterministic
 /optimize-

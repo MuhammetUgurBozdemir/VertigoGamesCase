@@ -114,6 +114,10 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:ODIN_INSPECTOR
+-define:ODIN_INSPECTOR_3
+-define:ODIN_INSPECTOR_3_1
+-define:ODIN_INSPECTOR_EDITOR_ONLY
 -define:PACKAGE_PHYSICS
 -define:PACKAGE_PHYSICS2D
 -define:PACKAGE_TILEMAP
@@ -337,6 +341,13 @@
 -r:"/Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll"
 -r:"/Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll"
 -r:"/Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.Reflection.Editor.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.Serialization.Config.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.Serialization.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.Utilities.dll"
+-r:"Assets/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll"
 "Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/AxisEventData.cs"
 "Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/BaseEventData.cs"
 "Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs"
