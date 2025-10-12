@@ -368,6 +368,7 @@
 "Assets/Scripts/SpinController.cs"
 "Assets/Scripts/SpinManager.cs"
 "Assets/Scripts/SpinWheelAnimator.cs"
+"Assets/Scripts/StreakBarView.cs"
 "Assets/Scripts/WheelTypeSo.cs"
 -langversion:9.0
 /deterministic

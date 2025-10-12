@@ -4,7 +4,7 @@ public class SpinManager
 {
     private WheelTypeSo Config { get; set; }
 
-    private int Streak { get; set; }
+    public int Streak { get; private set; }
 
     public event Action<int> OnSlotSelected; // index
     public event Action<RewardDefinitionSo> OnRewardResolved;

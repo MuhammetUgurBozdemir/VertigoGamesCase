@@ -4,32 +4,33 @@ using UnityEngine.UI;
 
 public class SpinController : MonoBehaviour
 {
-    [Header("Data")]
-    public WheelTypeSo config;                 
+    [Header("Data")] public WheelTypeSo config;
 
-    [Header("Refs")]
-    public SpinWheelAnimator animator;       
-    public Button spinButton;                  
-    // public StreakBarView streakBar;          
+    [Header("Refs")] public SpinWheelAnimator animator;
+    public Button spinButton;
+    public StreakBarView streakBar;
     // public RewardsPanelView rewardsPanel;      
 
     SpinManager manager;
-    
+
     [SerializeField] List<SliceView> sliceViews;
 
     void Awake()
     {
         manager = new SpinManager(config);
 
-        
+
         if (spinButton != null)
         {
             spinButton.onClick.AddListener(OnSpinPressed);
         }
 
-        
+
         manager.OnSlotSelected += idx => Debug.Log("Slot: " + idx);
-        manager.OnRewardResolved += slice => { /* popup/FX vs. */ };
+        manager.OnRewardResolved += slice =>
+        {
+            /* popup/FX vs. */
+        };
 
         for (int i = 0; i < sliceViews.Count; i++)
         {
@@ -47,16 +48,15 @@ public class SpinController : MonoBehaviour
     {
         if (animator.IsBusy) return;
 
-        int idx = manager.PickNextIndex();             
-        animator.slotCount = 8;        
+        int idx = manager.PickNextIndex();
+        animator.slotCount = 8;
 
-        animator.PlayToIndex(idx, () =>                // 2) animasyon
+        animator.PlayToIndex(idx, () =>
         {
-            var (slice, amount) = manager.Resolve(idx);// 3) ödülü hesapla / streak güncelle
-            // 4) UI güncelle
-            // streakBar?.Refresh(manager.Streak);
+            var (slice, amount) = manager.Resolve(idx);
+
+            streakBar?.SlideAnim(manager.Streak);
             // rewardsPanel?.Apply(slice, amount);
-            // burada return’e ihtiyacın varsa event ya da callback ile yayınla
         });
     }
 }
