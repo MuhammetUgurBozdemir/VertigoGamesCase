@@ -363,6 +363,8 @@
 "Assets/Scripts/Enums.cs"
 "Assets/Scripts/RadialLayoutGroup.cs"
 "Assets/Scripts/RewardDefinitionSo.cs"
+"Assets/Scripts/RewardPanelItemView.cs"
+"Assets/Scripts/RewardsPanel.cs"
 "Assets/Scripts/SafeAreaFitter.cs"
 "Assets/Scripts/SliceView.cs"
 "Assets/Scripts/SpinController.cs"

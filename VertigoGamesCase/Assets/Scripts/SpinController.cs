@@ -9,7 +9,7 @@ public class SpinController : MonoBehaviour
     [Header("Refs")] public SpinWheelAnimator animator;
     public Button spinButton;
     public StreakBarView streakBar;
-    // public RewardsPanelView rewardsPanel;      
+     public RewardsPanel rewardsPanel;      
 
     SpinManager manager;
 
@@ -56,7 +56,7 @@ public class SpinController : MonoBehaviour
             var (slice, amount) = manager.Resolve(idx);
 
             streakBar?.SlideAnim(manager.Streak);
-            // rewardsPanel?.Apply(slice, amount);
+             rewardsPanel?.UpdateRewardListItems(slice, amount);
         });
     }
 }

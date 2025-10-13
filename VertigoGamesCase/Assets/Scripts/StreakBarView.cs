@@ -10,6 +10,7 @@ public class StreakBarView : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> streakTexts;
     [SerializeField] private List<RectTransform> streakTextHolders;
     [SerializeField] private TextMeshProUGUI cursorText;
+    [SerializeField] private Image cursorImage;
 
     [SerializeField] private RectTransform content;
     [SerializeField] private HorizontalLayoutGroup hLayout;
@@ -45,19 +46,22 @@ public class StreakBarView : MonoBehaviour
 
     private void CheckColors()
     {
+        cursorImage.color = _currentStreak % 30 == 0 && _currentStreak != 0 ? new Color(1f, 0.84f, 0f) :
+            _currentStreak % 5 == 0 && _currentStreak != 0 ? Color.green : Color.white;
+
         for (var i = 0; i < streakTexts.Count; i++)
         {
             TextMeshProUGUI t = streakTexts[i];
             var number = Convert.ToInt16(t.text);
             var color = Color.white;
 
-            if (number % 30 == 0)
+            if (number % 30 == 0 && number != 0)
                 color = new Color(1f, 0.84f, 0f);
 
-            else if (number % 5 == 0)
+            else if (number % 5 == 0 && number != 0)
                 color = Color.green;
 
-            color.a = i < _currentStreak ? 0.5f : 1f;
+            color.a = number < _currentStreak ? 0.3f : 1f;
 
             t.color = color;
         }
@@ -86,7 +90,7 @@ public class StreakBarView : MonoBehaviour
         {
             mover.anchoredPosition = new Vector2(startX, mover.anchoredPosition.y);
             IncreaseStreak(currentStreak);
-            
+
             CheckColors();
 
             if (hLayout) hLayout.enabled = hlgEnabled;
