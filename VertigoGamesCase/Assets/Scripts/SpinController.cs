@@ -9,11 +9,13 @@ public class SpinController : MonoBehaviour
     [Header("Refs")] public SpinWheelAnimator animator;
     public Button spinButton;
     public StreakBarView streakBar;
-     public RewardsPanel rewardsPanel;      
+    public RewardsPanel rewardsPanel;
 
     SpinManager manager;
 
     [SerializeField] List<SliceView> sliceViews;
+
+    [SerializeField] RewardCardView rewardCardView;
 
     void Awake()
     {
@@ -56,7 +58,8 @@ public class SpinController : MonoBehaviour
             var (slice, amount) = manager.Resolve(idx);
 
             streakBar?.SlideAnim(manager.Streak);
-             rewardsPanel?.UpdateRewardListItems(slice, amount);
+            rewardsPanel?.UpdateRewardListItems(slice, amount);
+            rewardCardView.Init(slice.icon, slice.name, amount);
         });
     }
 }

@@ -362,6 +362,7 @@
 -r:"Library/Bee/artifacts/1300b0aEDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Enums.cs"
 "Assets/Scripts/RadialLayoutGroup.cs"
+"Assets/Scripts/RewardCardView.cs"
 "Assets/Scripts/RewardDefinitionSo.cs"
 "Assets/Scripts/RewardPanelItemView.cs"
 "Assets/Scripts/RewardsPanel.cs"
