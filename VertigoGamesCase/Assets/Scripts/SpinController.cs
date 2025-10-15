@@ -4,12 +4,15 @@ using UnityEngine.UI;
 
 public class SpinController : MonoBehaviour
 {
-    [Header("Data")] public WheelTypeSo config;
+    [Header("Data")] public WheelTypeSo bronzeConfig;
+    [Header("Data")] public WheelTypeSo silverConfig;
+    [Header("Data")] public WheelTypeSo goldConfig;
 
-    [Header("Refs")] public SpinWheelAnimator animator;
-    public Button spinButton;
-    public StreakBarView streakBar;
-    public RewardsPanel rewardsPanel;
+    [Header("Refs")] [SerializeField] SpinWheelAnimator animator;
+    [SerializeField] Button spinButton;
+    [SerializeField] StreakBarView streakBar;
+    [SerializeField] RewardsPanel rewardsPanel;
+    [SerializeField] Image wheelImage;
 
     SpinManager manager;
 
@@ -19,8 +22,8 @@ public class SpinController : MonoBehaviour
 
     void Awake()
     {
-        manager = new SpinManager(config);
-
+        manager = new SpinManager(bronzeConfig);
+        wheelImage.sprite = bronzeConfig.bgSprite;
 
         if (spinButton != null)
         {
@@ -36,9 +39,36 @@ public class SpinController : MonoBehaviour
 
         for (int i = 0; i < sliceViews.Count; i++)
         {
-            sliceViews[i].Init(config.rewardDefinitions[i]);
+            sliceViews[i].Init(bronzeConfig.rewardDefinitions[i]);
         }
     }
+
+    private void SetWheelConfig(int index)
+    {
+        if (index % 30 == 0 && index != 0)
+        {
+            manager.SetConfig(goldConfig);
+            wheelImage.sprite = goldConfig.bgSprite;
+            for (int i = 0; i < sliceViews.Count; i++)
+                sliceViews[i].Init(goldConfig.rewardDefinitions[i]);
+        }
+        else if (index % 5 == 0 && index != 0)
+        {
+            manager.SetConfig(silverConfig);
+            wheelImage.sprite = silverConfig.bgSprite;
+
+            for (int i = 0; i < sliceViews.Count; i++)
+                sliceViews[i].Init(silverConfig.rewardDefinitions[i]);
+        }
+        else
+        {
+            manager.SetConfig(bronzeConfig);
+            wheelImage.sprite = bronzeConfig.bgSprite;
+            for (int i = 0; i < sliceViews.Count; i++)
+                sliceViews[i].Init(bronzeConfig.rewardDefinitions[i]);
+        }
+    }
+
 
     void OnDestroy()
     {
@@ -57,9 +87,10 @@ public class SpinController : MonoBehaviour
         {
             var (slice, amount) = manager.Resolve(idx);
 
+            SetWheelConfig(manager.Streak);
             streakBar?.SlideAnim(manager.Streak);
             rewardsPanel?.UpdateRewardListItems(slice, amount);
-            rewardCardView.Init(slice.icon, slice.name, amount);
+            rewardCardView.Init(slice.icon, slice.displayName, amount);
         });
     }
 }

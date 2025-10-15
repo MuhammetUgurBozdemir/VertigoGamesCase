@@ -32,6 +32,6 @@ public class RewardCardView : MonoBehaviour
     public void CardRevealAnim()
     {
         transform.DOLocalMove(Vector3.zero, .4f).SetEase(Ease.InOutBack);
-        transform.DOLocalMove(initialPos, .4f).SetEase(Ease.InOutBack).SetDelay(1f);
+        transform.DOLocalMove(initialPos, .4f).SetEase(Ease.InOutBack).SetDelay(2f);
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class StreakBarView : MonoBehaviour
 {
+    [SerializeField] SpinController spinController;
     [SerializeField] private List<TextMeshProUGUI> streakTexts;
     [SerializeField] private List<RectTransform> streakTextHolders;
     [SerializeField] private TextMeshProUGUI cursorText;

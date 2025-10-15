@@ -3,10 +3,8 @@ using System;
 public class SpinManager
 {
     private WheelTypeSo Config { get; set; }
-
     public int Streak { get; private set; }
-
-    public event Action<int> OnSlotSelected; // index
+    public event Action<int> OnSlotSelected; 
     public event Action<RewardDefinitionSo> OnRewardResolved;
 
     public SpinManager(WheelTypeSo cfg)
@@ -17,6 +15,11 @@ public class SpinManager
     public int PickNextIndex()
     {
         return UnityEngine.Random.Range(0, Config.rewardDefinitions.Length);
+    }
+
+    public void SetConfig(WheelTypeSo cfg)
+    {
+        Config = cfg;
     }
 
     public (RewardDefinitionSo slice, int amount) Resolve(int idx)
