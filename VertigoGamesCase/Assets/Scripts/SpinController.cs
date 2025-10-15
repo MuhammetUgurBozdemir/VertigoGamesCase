@@ -30,13 +30,6 @@ public class SpinController : MonoBehaviour
             spinButton.onClick.AddListener(OnSpinPressed);
         }
 
-
-        manager.OnSlotSelected += idx => Debug.Log("Slot: " + idx);
-        manager.OnRewardResolved += slice =>
-        {
-            /* popup/FX vs. */
-        };
-
         for (int i = 0; i < sliceViews.Count; i++)
         {
             sliceViews[i].Init(bronzeConfig.rewardDefinitions[i]);
@@ -75,6 +68,7 @@ public class SpinController : MonoBehaviour
         if (spinButton != null)
             spinButton.onClick.RemoveListener(OnSpinPressed);
     }
+    
 
     void OnSpinPressed()
     {
@@ -82,15 +76,14 @@ public class SpinController : MonoBehaviour
 
         int idx = manager.PickNextIndex();
         animator.slotCount = 8;
+        SetWheelConfig(manager.Streak + 1);
 
         animator.PlayToIndex(idx, () =>
         {
             var (slice, amount) = manager.Resolve(idx);
-
-            SetWheelConfig(manager.Streak);
             streakBar?.SlideAnim(manager.Streak);
             rewardsPanel?.UpdateRewardListItems(slice, amount);
-            rewardCardView.Init(slice.icon, slice.displayName, amount);
+            rewardCardView.Init(slice, amount);
         });
     }
 }

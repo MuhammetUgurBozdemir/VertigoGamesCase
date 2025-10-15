@@ -16,11 +16,11 @@ MonoBehaviour:
   bgSprite: {fileID: 21300000, guid: 67c2b64cef0224272907a74f2120c96c, type: 3}
   pointerSprite: {fileID: 21300000, guid: bbdf4451da14d4eb7a8632e5ac70de29, type: 3}
   rewardDefinitions:
-  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: b4ca73f476f7547209e56bf89c4d4b51, type: 2}
   - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
   - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
   - {fileID: 11400000, guid: 69965e54d8aef45b58bfe079b754d00a, type: 2}
-  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: b4ca73f476f7547209e56bf89c4d4b51, type: 2}
   - {fileID: 11400000, guid: 69965e54d8aef45b58bfe079b754d00a, type: 2}
   - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
   - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
