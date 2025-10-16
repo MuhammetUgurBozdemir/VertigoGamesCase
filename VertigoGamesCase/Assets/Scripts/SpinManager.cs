@@ -5,6 +5,8 @@ public class SpinManager
     private WheelTypeSo Config { get; set; }
     public int Streak { get; private set; }
 
+    public event Action OnBomb;
+
     public SpinManager(WheelTypeSo cfg)
     {
         Config = cfg;
@@ -20,6 +22,10 @@ public class SpinManager
         Config = cfg;
     }
 
+    public void EndStreak()
+    {
+        Streak = 0;
+    }
     public (RewardDefinitionSo slice, int amount) Resolve(int idx)
     {
         var slice = Config.rewardDefinitions[idx];
@@ -28,12 +34,13 @@ public class SpinManager
         if (slice.IsBomb())
         {
             Streak = 0;
+            OnBomb?.Invoke();
         }
         else
         {
             Streak++;
         }
-        
+
         return (slice, amount);
     }
 }

@@ -1,39 +1,72 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SpinController : MonoBehaviour
 {
-    [Header("Data")] public WheelTypeSo bronzeConfig;
-    [Header("Data")] public WheelTypeSo silverConfig;
-    [Header("Data")] public WheelTypeSo goldConfig;
+    [FoldoutGroup("Data"), SerializeField] public WheelTypeSo bronzeConfig;
+    [FoldoutGroup("Data"), SerializeField] WheelTypeSo silverConfig;
+    [FoldoutGroup("Data"), SerializeField] WheelTypeSo goldConfig;
 
-    [Header("Refs")] [SerializeField] SpinWheelAnimator animator;
-    [SerializeField] Button spinButton;
-    [SerializeField] StreakBarView streakBar;
-    [SerializeField] RewardsPanel rewardsPanel;
-    [SerializeField] Image wheelImage;
+    [FoldoutGroup("Refs")] [SerializeField]
+    SpinWheelAnimator animator;
+
+    [FoldoutGroup("Refs")] [SerializeField]
+    Button spinButton;
+
+    [FoldoutGroup("Refs")] [SerializeField]
+    Button exitButton;
+
+    [FoldoutGroup("Refs")] [SerializeField]
+    StreakBarView streakBar;
+
+    [FoldoutGroup("Refs")] [SerializeField]
+    RewardsPanel rewardsPanel;
+
+    [FoldoutGroup("Refs")] [SerializeField]
+    Image wheelImage;
+
+    [FoldoutGroup("Refs")] [SerializeField]
+    ZoneView zoneView;
+
+    [FoldoutGroup("Refs")] [SerializeField]
+    RewardCardView rewardCardView;
+
+    [FoldoutGroup("Refs")] [SerializeField]
+    List<SliceView> sliceViews;
 
     SpinManager manager;
 
-    [SerializeField] List<SliceView> sliceViews;
-
-    [SerializeField] RewardCardView rewardCardView;
-
     void Awake()
     {
+        Application.targetFrameRate = 60;
         manager = new SpinManager(bronzeConfig);
         wheelImage.sprite = bronzeConfig.bgSprite;
+        manager.OnBomb += OnBomb;
 
-        if (spinButton != null)
-        {
-            spinButton.onClick.AddListener(OnSpinPressed);
-        }
+        spinButton.onClick.AddListener(OnSpinClicked);
+        exitButton.onClick.AddListener(OnExitClicked);
 
         for (int i = 0; i < sliceViews.Count; i++)
         {
             sliceViews[i].Init(bronzeConfig.rewardDefinitions[i]);
         }
+    }
+
+    private void OnBomb()
+    {
+        streakBar.Reset();
+        rewardsPanel.Reset();
+        zoneView.UpdateZoneTexts(0);
+    }
+
+    private void OnExitClicked()
+    {
+        manager.EndStreak();
+        streakBar.Reset(true);
+        rewardsPanel.Reset();
+        zoneView.UpdateZoneTexts(0);
     }
 
     private void SetWheelConfig(int index)
@@ -66,23 +99,22 @@ public class SpinController : MonoBehaviour
     void OnDestroy()
     {
         if (spinButton != null)
-            spinButton.onClick.RemoveListener(OnSpinPressed);
+            spinButton.onClick.RemoveListener(OnSpinClicked);
     }
-    
 
-    void OnSpinPressed()
+
+    void OnSpinClicked()
     {
         if (animator.IsBusy) return;
 
         int idx = manager.PickNextIndex();
-        animator.slotCount = 8;
         SetWheelConfig(manager.Streak + 1);
-
+        zoneView.UpdateZoneTexts(manager.Streak + 1);
         animator.PlayToIndex(idx, () =>
         {
             var (slice, amount) = manager.Resolve(idx);
             streakBar?.SlideAnim(manager.Streak);
-            rewardsPanel?.UpdateRewardListItems(slice, amount);
+            if (!slice.IsBomb()) rewardsPanel?.UpdateRewardListItems(slice, amount);
             rewardCardView.Init(slice, amount);
         });
     }

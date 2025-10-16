@@ -30,7 +30,7 @@ public class SafeAreaFitter : MonoBehaviour
 
   
 
-    public void Apply(bool force = false)
+    private void Apply(bool force = false)
     {
         if (_applying || !rt) return;
         _applying = true;
@@ -77,11 +77,8 @@ public class SafeAreaFitter : MonoBehaviour
     [InitializeOnLoadMethod]
     static void EditorBridgeInit()
     {
-        // derleme biter bitmez
         CompilationPipeline.compilationFinished += _ => ReapplyAll();
-        // play-mode değişimlerinde
         EditorApplication.playModeStateChanged += _ => ReapplyAll();
-        // editor açılış / assembly reload sonrası
         EditorApplication.delayCall += ReapplyAll;
     }
 

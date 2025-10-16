@@ -1,17 +1,24 @@
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Sirenix.OdinInspector;
 
 public class SpinWheelAnimator : MonoBehaviour
 {
-    [Header("Refs")] public Transform wheelRoot;
-    public int slotCount = 8;
+    [FoldoutGroup("Refs"), SerializeField] private Transform wheelRoot;
 
-    [Header("Anim")] public float spinDuration = 3f;
-    public int extraRounds = 3;
-    public Ease easeType = Ease.InOutCubic;
+    [FoldoutGroup("AnimSettings"), SerializeField]
+    private float spinDuration = 3f;
+
+    [FoldoutGroup("AnimSettings"), SerializeField]
+    private int extraRounds = 3;
+
+    [FoldoutGroup("AnimSettings"), SerializeField]
+    private Ease easeType = Ease.InOutCubic;
 
     private Tween _spinTween;
+    private int slotCount = 8;
+    public int GetSlotCount => slotCount;
     bool _busy;
     public bool IsBusy => _busy;
 
@@ -20,14 +27,14 @@ public class SpinWheelAnimator : MonoBehaviour
     {
         if (_busy || !wheelRoot) return;
         _busy = true;
-        
+
         float targetAngle = 225f + targetIndex * 45f;
-        
+
         float startZ = wheelRoot.localEulerAngles.z;
 
-       
+
         float delta = Mathf.Repeat(targetAngle - startZ, 360f);
-        
+
         float finalZ = startZ + extraRounds * 360f + delta;
 
         _spinTween?.Kill();

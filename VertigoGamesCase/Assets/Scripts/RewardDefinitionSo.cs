@@ -4,17 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Spin/Data/Reward Definition", fileName = "reward_")]
 public class RewardDefinitionSo : ScriptableObject
 {
-    [Header("Kimlik")] public string id;
+    public string id;
     public string displayName;
 
-    [Header("Görsel")] public Sprite icon;
-    public Color tint = Color.white;
+    public Sprite icon;
 
-    [Header("Tür")] public RewardType type = RewardType.Currency;
-    [ShowIf("type", RewardType.Currency)] public CurrencyKind currency;
+    public RewardType type = RewardType.Currency;
 
-    [Header("Miktar Varsayılanı")] [Min(0)]
-    public int baseAmount = 1;
+    [Min(0)] public int baseAmount = 1;
 
     public int GetRandomAmount()
     {

@@ -1,0 +1,9 @@
+com.DefaultCompany.VertigoGamesCase.launcher-pngs-0 /Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/generated/res/pngs/debug
+com.DefaultCompany.VertigoGamesCase.launcher-resValues-1 /Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/generated/res/resValues/debug
+com.DefaultCompany.VertigoGamesCase.launcher-rs-2 /Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/generated/res/rs/debug
+com.DefaultCompany.VertigoGamesCase.launcher-mergeDebugResources-3 /Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.DefaultCompany.VertigoGamesCase.launcher-mergeDebugResources-4 /Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.DefaultCompany.VertigoGamesCase.launcher-merged_res-5 /Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/intermediates/merged_res/debug
+com.DefaultCompany.VertigoGamesCase.launcher-debug-6 /Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/debug/res
+com.DefaultCompany.VertigoGamesCase.launcher-main-7 /Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res
+com.DefaultCompany.VertigoGamesCase.launcher-packaged_res-8 /Users/ugurbozdemir/Documents/GitHub/VertigoGamesCase/VertigoGamesCase/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/build/intermediates/packaged_res/debug

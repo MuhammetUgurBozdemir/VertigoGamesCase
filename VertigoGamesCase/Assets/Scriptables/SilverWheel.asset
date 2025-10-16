@@ -17,10 +17,10 @@ MonoBehaviour:
   pointerSprite: {fileID: 21300000, guid: d3abdea421f1f4225865b29406980321, type: 3}
   rewardDefinitions:
   - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
-  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
-  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: 35fd78e449bea4a3080066e1ea36839d, type: 2}
+  - {fileID: 11400000, guid: 88ec43020fb8245ee8ce5c58de339ac5, type: 2}
   - {fileID: 11400000, guid: 69965e54d8aef45b58bfe079b754d00a, type: 2}
   - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
   - {fileID: 11400000, guid: 69965e54d8aef45b58bfe079b754d00a, type: 2}
   - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
-  - {fileID: 11400000, guid: 40089e6bda139417db75806822191037, type: 2}
+  - {fileID: 11400000, guid: 35fd78e449bea4a3080066e1ea36839d, type: 2}

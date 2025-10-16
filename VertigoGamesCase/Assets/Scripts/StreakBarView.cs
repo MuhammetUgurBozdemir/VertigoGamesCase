@@ -22,6 +22,9 @@ public class StreakBarView : MonoBehaviour
     [SerializeField] ContentSizeFitter fitter;
     [SerializeField] ScrollRect scrollRect;
 
+    private readonly List<TextMeshProUGUI> backupTextList = new List<TextMeshProUGUI>();
+    private readonly List<RectTransform> backupStreakTextHolders = new List<RectTransform>();
+
 
     private int _currentStreak;
 
@@ -31,6 +34,9 @@ public class StreakBarView : MonoBehaviour
         {
             streakTexts[i].text = (i).ToString();
         }
+
+        backupTextList.AddRange(streakTexts);
+        backupStreakTextHolders.AddRange(streakTextHolders);
 
         CheckColors();
     }
@@ -128,5 +134,32 @@ public class StreakBarView : MonoBehaviour
             holder.SetAsLastSibling();
             text.text = (_currentStreak + 6).ToString();
         }
+    }
+
+    public void Reset(bool plusOne = false)
+    {
+        streakTextHolders.Clear();
+        streakTexts.Clear();
+
+        streakTextHolders.AddRange(backupStreakTextHolders);
+        streakTexts.AddRange(backupTextList);
+
+        int count = plusOne ? 6 : 5;
+
+        for (var i = 0; i < streakTexts.Count; i++)
+        {
+            streakTextHolders[i].transform.SetSiblingIndex(i);
+            streakTexts[i].text = i.ToString();
+
+            if (i > count)
+            {
+                streakTexts[i].transform.parent.gameObject.SetActive(false);
+            }
+        }
+
+        _currentStreak = 0;
+        cursorText.text = "0";
+
+        CheckColors();
     }
 }

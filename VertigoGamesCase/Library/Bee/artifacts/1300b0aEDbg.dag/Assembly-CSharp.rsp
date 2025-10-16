@@ -373,6 +373,7 @@
 "Assets/Scripts/SpinWheelAnimator.cs"
 "Assets/Scripts/StreakBarView.cs"
 "Assets/Scripts/WheelTypeSo.cs"
+"Assets/Scripts/ZoneView.cs"
 -langversion:9.0
 /deterministic
 /optimize-

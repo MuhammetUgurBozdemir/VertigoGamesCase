@@ -1,22 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RewardPanelItemView : MonoBehaviour
 {
-    [SerializeField] private Image image;
-    [SerializeField] private TextMeshProUGUI countText;
-    [SerializeField] private RewardDefinitionSo rewardDefinitionSo;
+    [FoldoutGroup("Refs")] [SerializeField]
+    private Image image;
+
+    [FoldoutGroup("Refs")] [SerializeField]
+    private TextMeshProUGUI countText;
+
+    [FoldoutGroup("Profiler")] private RewardDefinitionSo rewardDefinitionSo;
     int amount;
-
-    public int GetCount()
-    {
-        return amount;
-    }
-
+    
     public void Init(Sprite sprite, int number, RewardDefinitionSo rewardDefinitionSo)
     {
         amount = number;
@@ -29,11 +29,12 @@ public class RewardPanelItemView : MonoBehaviour
     {
         return rewardDefinitionSo.type;
     }
-
-    public CurrencyKind GetCurrencyKind()
+    
+    public string GetRewardsId()
     {
-        return rewardDefinitionSo.currency;
+        return rewardDefinitionSo.id;
     }
+    
 
     public void UpdateCount(int amount)
     {
